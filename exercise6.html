@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date Input</title>
+  </head>
+  <body>
+    <input type="date" name="date" id="date" />
+    <button onclick="findDate()">Find</button>
+    <script>
+      document.getElementById("date").valueAsDate = new Date();
+      const findDate = () => {
+        let date = document.getElementById("date").valueAsDate;
+        date.setHours(0, 0, 0, 0);
+        let today = new Date();
+        today.setHours(0, 0, 0, 0);
+        if (date > today) alert("After today");
+        else if (date < today) alert("Before today");
+        else alert("Today");
+      };
+    </script>
+  </body>
+</html>

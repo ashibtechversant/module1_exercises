@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banking System</title>
+  </head>
+  <body>
+    <script>
+      class BankAccount {
+        constructor(firstName, lastName) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+          this.balance = 0;
+        }
+        get fullName() {
+          return this.firstName + " " + this.lastName;
+        }
+        checkBalance() {
+          console.log(this.balance);
+        }
+      }
+      BankAccount.prototype.deposit = function (amount) {
+        this.balance += amount;
+      };
+      BankAccount.prototype.withdraw = function (amount) {
+        this.balance -= amount;
+      };
+      BankAccount.prototype.transfer = function (account, amount) {
+        this.withdraw(amount);
+        account.deposit(amount);
+      };
+
+      const bankAccount1 = new BankAccount("Ashib", "Rehman");
+      const bankAccount2 = new BankAccount("Rajan", "Harappa");
+      bankAccount1.deposit(400);
+      console.log(bankAccount1.fullName);
+      bankAccount1.transfer(bankAccount2,100);
+      bankAccount1.checkBalance();
+      bankAccount2.checkBalance();
+    </script>
+  </body>
+</html>

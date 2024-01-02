@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String Parsing Calcualtor</title>
+  </head>
+  <body>
+    <h1>String Parsing Calcualtor</h1>
+    <input type="text" name="text" id="text" style="width: 100%" />
+    <br /><br />
+    <button onclick="buttonClick()">Find Result</button>
+    <div id="result"></div>
+    <script>
+      const buttonClick = () => {
+        try {
+          let text = document.getElementById("text").value;
+          text = text.toLowerCase()
+            .split("plus")
+            .join("+")
+            .split("minus")
+            .join("-")
+            .split("multipliedby")
+            .join("*")
+            .split("dividedby")
+            .join("/");
+          document.getElementById("result").innerHTML=Math.round(eval(text));
+        } catch (e) {
+            document.getElementById("result").innerHTML="An error occured. Please check Input <br>"+e;
+        }
+      };
+    </script>
+  </body>
+</html>

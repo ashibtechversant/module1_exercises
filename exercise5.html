@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capitalize</title>
+  </head>
+  <body>
+    <label for="textInput">Enter your text</label>
+    <textarea id="textInput" style="width: 100%;height: 320px;"></textarea>
+    <script>
+      function capitalizeSentences() {
+        const inputElement = document.getElementById("textInput");
+        const inputValue = inputElement.value;
+        const capitalizedText = inputValue.replace(
+          /(^|\.\s+)([a-z])/g,
+          (match) => match.toUpperCase()
+        );
+        inputElement.value = capitalizedText;
+      }
+      document
+        .getElementById("textInput")
+        .addEventListener("input", capitalizeSentences);
+    </script>
+  </body>
+</html>
