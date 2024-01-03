@@ -1,10 +1,11 @@
 (() => console.log("Loading User Details..."))();
 const greet = () => {
   let greetingMessage = "Hello";
-  return (fname, sname) => {
+  function greeting(fname, sname) {
     greetingMessage += " " + fname + " " + sname;
     console.log(greetingMessage);
-  };
+  }
+  return greeting;
 };
 
 const sayHello = greet();
