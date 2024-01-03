@@ -30,9 +30,8 @@ data.forEach((e) => {
     if (typeof e[i] === "string") e[i] = e[i].split(" ").join("");
   }
   e.name = e.firstname + " " + e.lastname;
-  // if(e.phone.length>=10) e.phone=e.phone.slice(-10);
-  // if(e.phone.length<10) 
-  e.phone=e.phone.padStart(10,'0');
+  if(e.phone.length>=10) e.phone=e.phone.slice(-10);
+  if(e.phone.length<10) e.phone=e.phone.padStart(10,'0');
   if(e.age>150 || e.age<0) e.age="NA";
   e.id=e.id.slice(0,-3).concat("###");
 });
