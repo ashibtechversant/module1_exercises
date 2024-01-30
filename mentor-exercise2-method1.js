@@ -7,7 +7,6 @@ const arr = [
 function transform(arr) {
   const result = arr.reduce((acc, { name, values }) => {
     acc[name] = acc[name] ? [...acc[name], ...values] : values;
-    console.log(acc);
     return acc;
   }, {});
   return Object.entries(result).map(([name, values]) => ({ name, values }));
